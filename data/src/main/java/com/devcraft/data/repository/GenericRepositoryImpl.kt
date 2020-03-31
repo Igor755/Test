@@ -14,11 +14,11 @@ class GenericRepositoryImpl : GenericRepository, KoinComponent {
     private val categoriesDbSource: GenericDbSource by inject()
 
     override suspend fun getGeneric(
-        onSusses: (List<GenericModel>?) -> Unit,
+        onSuccess: (List<GenericModel>?) -> Unit,
         onError: ((Exception) -> Unit?)?
     ) {
-        categoriesNetSource.getCategories({
-            onSusses(it?.mapGenericNet()?.toList())
+        categoriesNetSource.getGeneric({
+            onSuccess(it?.mapGenericNet()?.toList())
         }, {
             onError?.invoke(it)
         })

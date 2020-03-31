@@ -4,7 +4,7 @@ import com.devcraft.domain.model.GenericModel
 
 interface GenericRepository {
     suspend fun getGeneric(
-        onSusses: (List<GenericModel>?) -> Unit,
+        onSuccess: (List<GenericModel>?) -> Unit,
         onError: ((Exception) -> Unit?)? = null
     )
 

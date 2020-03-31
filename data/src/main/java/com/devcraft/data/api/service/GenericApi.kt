@@ -7,5 +7,5 @@ import retrofit2.http.GET
 
 interface GenericApi {
     @GET(ApiEndpoints.ENDPOINT_NAME)
-    fun getCategories(): Call<List<GenericNet>>
+    fun getGeneric(): Call<List<GenericNet>>
 }

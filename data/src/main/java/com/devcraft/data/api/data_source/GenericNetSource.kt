@@ -10,8 +10,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class GenericNetSource(private val genericApi: GenericApi) : KoinComponent {
-    fun getCategories(onComplete: (List<GenericNet>?) -> Unit, onError: (Exception) -> Unit) {
-        genericApi.getCategories().enqueue(object : Callback<List<GenericNet>> {
+    fun getGeneric(onComplete: (List<GenericNet>?) -> Unit, onError: (Exception) -> Unit) {
+        genericApi.getGeneric().enqueue(object : Callback<List<GenericNet>> {
             override fun onFailure(call: Call<List<GenericNet>>, t: Throwable) {
                 onError(NetworkErrorException(t))
             }
