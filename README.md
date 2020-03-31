@@ -15,6 +15,8 @@ $ git remote add origin https://gitlab.com/devcraft/myExcitingProject.git
 $ git config master.remote origin
 $ git config master.merge refs/heads/master
 ```
+>**Notice!** Dont forget to remove readme file from your project
+
 But project is not ready yet! 
 To run your first build you have to:
 1. change app package name in build.gradle(:presentation);  
