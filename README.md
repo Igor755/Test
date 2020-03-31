@@ -75,7 +75,7 @@ Presentation interacts with domain using interactor classes that implement use c
 Use cases logic is represented by implementation of domain repository interfaces on data layer.<br/>
 Repositories it self interact with data sources that available only on data module  and any other module does not now that they exist.<br/> 
 
->**Notice!** DI module is used for dependencies injection (datasource to repository, repository to interactor, interactor to viewModel and etc). But for in moodule injection should be created **di package** with its own koin modules.   
+>**Notice!** DI module is used for dependencies injection (datasource to repository, repository to interactor, interactor to viewModel and etc). But for in module injection should be created **di package** with its own koin modules.   
 
 So as a result presentation module "knows" **only**  about domain throw di module.
 
