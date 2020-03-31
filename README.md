@@ -71,20 +71,20 @@ C[di] --> D
 D[data] --> B
 ```
 
-Presentation interacts with domain using interactor classes that implements use cases.<br/> 
+Presentation interacts with domain using interactor classes that implement use cases.<br/> 
 Use cases logic is represented by implementation of domain repository interfaces on data layer.<br/>
-Repositories it self interacting with data sources that available only on data module  and any other module does not now that they exist.<br/> 
+Repositories it self interact with data sources that available only on data module  and any other module does not now that they exist.<br/> 
 
->**Notice!** DI module is used for dependencies injection (datasource to repository, repository to interactor, interactor to viewModel and etc). But for in moodule injection sould be created **di package** with its own koin modules.   
+>**Notice!** DI module is used for dependencies injection (datasource to repository, repository to interactor, interactor to viewModel and etc). But for in moodule injection should be created **di package** with its own koin modules.   
 
 So as a result presentation module "knows" **only**  about domain throw di module.
 
-Each module has its own bunch of data entities that maps from one to another using MapExtensions.kt in data and presentation modules.
+Each module has its own bunch of data entities that map from one to another using MapExtensions.kt in data and presentation modules.
 
 Entities have suffix that changes depending on model or data source:
  * domain module data entities have "-Model" suffix
  * data module data entities has 2 types of suffix "-Net" for network and "-Entity" for database
- * presentation module data entities does not have suffix at all.             
+ * presentation module data entities do not have suffix at all.             
  
 [common mistakes in understanding of clean architecture](https://habr.com/ru/company/mobileup/blog/335382/)
 
