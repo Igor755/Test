@@ -1,22 +1,23 @@
 package com.devcraft.domain.interactor
 
 import com.devcraft.domain.model.GenericModel
+import com.devcraft.domain.repository.GenericRepository
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class GenericInteractor : KoinComponent {
-    private val repository: GenericInteractor by inject()
+    private val repository: GenericRepository by inject()
     suspend fun getGeneric(
-        onSusses: (GenericModel) -> Unit,
+        onSuccess: (List<GenericModel>?) -> Unit,
         onError: ((Exception) -> Unit?)?
     ) {
-        return repository.getGeneric(onSusses, onError)
+        return repository.getGenerics(onSuccess, onError)
     }
 
     suspend fun insertGeneric(
-        generic: GenericModel,
+        generics: List<GenericModel>,
         onError: ((Exception) -> Unit?)? = null
     ) {
-        repository.insertGeneric(generic, onError = onError)
+        repository.insertGenerics(generics, onError = onError)
     }
 }

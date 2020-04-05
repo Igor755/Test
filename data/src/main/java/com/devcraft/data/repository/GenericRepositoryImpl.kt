@@ -13,7 +13,7 @@ class GenericRepositoryImpl : GenericRepository, KoinComponent {
     private val categoriesNetSource: GenericNetSource by inject()
     private val categoriesDbSource: GenericDbSource by inject()
 
-    override suspend fun getGeneric(
+    override suspend fun getGenerics(
         onSuccess: (List<GenericModel>?) -> Unit,
         onError: ((Exception) -> Unit?)?
     ) {
@@ -24,7 +24,7 @@ class GenericRepositoryImpl : GenericRepository, KoinComponent {
         })
     }
 
-    override suspend fun insertGeneric(
+    override suspend fun insertGenerics(
         generic: List<GenericModel>,
         onError: ((Exception) -> Unit?)?
     ) {
