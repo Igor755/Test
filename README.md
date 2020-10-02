@@ -51,7 +51,7 @@ modules are connected into dependencies graph, where:
 graph LR
 D[data] --> B[domain]
 ```
-  * presentation depends in domain and di
+  * presentation depends on domain and di
  ```mermaid
 graph LR
 A[presentation] --> B[domain]
