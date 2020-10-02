@@ -85,7 +85,7 @@ Each module has its own bunch of data entities that map from one to another usin
 
 Entities have suffix that changes depending on model or data source:
  * domain module data entities have "-Model" suffix
- * data module data entities has 2 types of suffix "-Net" for network and "-Entity" for database
+ * data module data entities have 2 types of suffix "-Net" for network and "-Entity" for database
  * presentation module data entities do not have suffix at all.             
  
 [common mistakes in understanding of clean architecture](https://habr.com/ru/company/mobileup/blog/335382/)
