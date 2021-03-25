@@ -10,7 +10,7 @@ android {
         /*
         TODO change applicationId last peace according to app name
          */
-        applicationId "com.devcraft.clean_architecture"
+        applicationId "com.company.test"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1

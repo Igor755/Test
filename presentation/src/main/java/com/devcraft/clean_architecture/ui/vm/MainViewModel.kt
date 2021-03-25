@@ -24,7 +24,7 @@ class MainViewModel(private val dataInteractor: DataInteractor) : ViewModel() {
             dataInteractor.getData({
                 _setLiveData.postValue(Result.Success())
             }, {
-                _setLiveData.postValue(com.devcraft.domain.model.Result.Error(it))
+                _setLiveData.postValue(Result.Error(it))
             })
         }
     }

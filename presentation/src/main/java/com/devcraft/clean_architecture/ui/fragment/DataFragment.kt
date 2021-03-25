@@ -43,6 +43,7 @@ class DataFragment : Fragment(R.layout.fragment_data) {
                 is Result.Success -> {
                     it.data?.let { tastingResponse ->
                         println(tastingResponse)
+                        dataAdapter.items = tastingResponse.data
                     }
                 }
                 is Result.Error ->
