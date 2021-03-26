@@ -10,6 +10,7 @@ import com.devcraft.clean_architecture.model.AllData
 import com.devcraft.clean_architecture.ui.fragment.adapter.CategoriesAdapter
 import com.devcraft.clean_architecture.ui.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_categories.*
+import kotlinx.android.synthetic.main.toolbar_offer.*
 import org.koin.android.ext.android.inject
 
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {
@@ -28,6 +29,9 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     }
 
     fun initViews() {
+        val activity = activity as MainActivity
+        activity.ivToolbarBack.visibility = View.VISIBLE
+        activity.tvToolbarName.text = resources.getString(R.string.back)
         rvCategories.layoutManager = LinearLayoutManager(activity)
         categoriesAdapter.setNewData(selectionPositionDetailData?.categories)
         rvCategories.adapter = categoriesAdapter
@@ -35,15 +39,19 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
     fun initListeners() {
         categoriesAdapter.onItemClickListener = { position->
-            val detailData = categoriesAdapter.getCategories(position)
-            println(detailData)
+            val categories = categoriesAdapter.getCategories(position)
+            println(categories)
             navigateTo(
                 R.id.fragment_container,
                 SubCategoriesFragment(),args = Bundle().apply {
-                    putParcelable("detailData", detailData)
+                    putParcelable("selectionPositionDetailData", categories)
                 },
                 backStackTag = MainActivity::class.java.name
             )
+        }
+        val activity = activity as MainActivity
+        activity.ivToolbarBack.setOnClickListener {
+            activity.onBackPressed()
         }
     }
 

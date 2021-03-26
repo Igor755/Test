@@ -31,14 +31,15 @@
                     android:layout_centerInParent="true"
                     android:text="NameBait"
                     android:textAppearance="?android:textAppearanceLarge"/>
-            <!--    <ImageView
+               <ImageView
                     android:layout_alignParentEnd="true"
                     android:id="@+id/imageBait"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:background="@color/colorTransparent"
-                    android:src="@drawable/delete30" />-->
+                    android:src="@drawable/ic_go" />
+
             </RelativeLayout>
 
         </RelativeLayout>

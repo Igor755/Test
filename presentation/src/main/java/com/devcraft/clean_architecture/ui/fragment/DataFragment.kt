@@ -13,6 +13,7 @@ import com.devcraft.clean_architecture.ui.main.MainActivity
 import com.devcraft.clean_architecture.ui.vm.MainViewModel
 import com.devcraft.domain.model.Result
 import kotlinx.android.synthetic.main.fragment_data.*
+import kotlinx.android.synthetic.main.toolbar_offer.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -31,6 +32,9 @@ class DataFragment : Fragment(R.layout.fragment_data) {
     }
 
     fun initViews() {
+        val activity = activity as MainActivity
+        activity.ivToolbarBack.visibility = View.GONE
+        activity.tvToolbarName.text = resources.getString(R.string.app_name)
         rvProducts.layoutManager = LinearLayoutManager(activity)
         rvProducts.adapter = dataAdapter1
     }

@@ -5,6 +5,10 @@
     android:animateLayoutChanges="true"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/tools"
+        layout="@layout/toolbar_offer" />
+
     <FrameLayout
         android:id="@id/fragment_container"
         android:layout_width="match_parent"
