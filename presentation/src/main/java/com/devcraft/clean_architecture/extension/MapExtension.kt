@@ -57,11 +57,11 @@ fun List<AllData>.mapNet() = mapTo(mutableListOf(), {
 })
 
 fun AllDataModel.map() = AllData(
-    id!!, title!!, date!!, categories!!.mapListModel()
+    id, title, date, categories.mapListModel()
 )
 
 fun CategoriesModel.map() =  Categories(
-    id!!, title!!, date!!, subCategories!!.mapListNetCat()
+    id, title, date, subCategories?.mapListNetCat()
 )
 
 fun SubCategoriesModel.map() = SubCategories(

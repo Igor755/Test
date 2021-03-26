@@ -7,9 +7,7 @@ import com.devcraft.domain.repository.DataRepository
 import java.lang.Exception
 
 class DataRepositoryImpl(private val dataNetSource: DataNetSource) : DataRepository {
-    override fun getData(onSuccess: (DataModel) -> Unit, onError: (Exception) -> Unit) {
-        dataNetSource.getAllData({
-            onSuccess(it.map())
-        }, onError)
-    }
+    override fun getData(onComplete: (DataModel) -> Unit, onError: (Exception) -> Unit) =
+        dataNetSource.getAllData(onComplete, onError)
+
 }

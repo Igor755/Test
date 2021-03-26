@@ -89,8 +89,11 @@ dependencies {
     /* BaseRecyclerViewAdapterHelper */
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.0-beta11'
 
+    /* BaseRecyclerViewAdapterHelper */
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
+
     /* firebase analytics
-   use with google-services.json*/
+    use with google-services.json*/
     //implementation 'com.google.firebase:firebase-analytics:17.2.3'
     //implementation 'com.google.firebase:firebase-crashlytics:17.0.0-beta02'
 }

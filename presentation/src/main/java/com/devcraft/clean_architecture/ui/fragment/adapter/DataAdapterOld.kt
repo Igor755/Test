@@ -1,4 +1,4 @@
-package com.devcraft.clean_architecture.adapter
+package com.devcraft.clean_architecture.ui.fragment.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,10 @@ import com.devcraft.clean_architecture.R
 import com.devcraft.clean_architecture.model.AllData
 import kotlinx.android.synthetic.main.one_item.view.*
 
-class DataAdapter : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
+class DataAdapterOld : RecyclerView.Adapter<DataAdapterOld.ViewHolder>() {
+
+    var onItemClickListener: ((position: Int) -> Unit)? = null
+
 
     var items = mutableListOf<AllData>()
         set(value) {
@@ -34,7 +37,13 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: AllData) = itemView.run {
             nameData.text = item.title
+            itemView.setOnClickListener {
+                onItemClickListener?.invoke(adapterPosition)
+            }
         }
     }
 
+   /* fun getBankCard(position: Int): BankCard? {
+        return getItem(position)
+    }*/
 }
