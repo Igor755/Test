@@ -9,6 +9,6 @@ data class CategoriesNet(
     val title : String,
     @SerializedName("date")
     val date : Long,
-    @SerializedName("categories")
+    @SerializedName("subcategories")
     val subCategories: List<SubCategoriesNet>?
 )

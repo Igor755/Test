@@ -14,8 +14,7 @@ fun GenericEntity.map() = GenericModel(id)
 
 fun GenericNet.map() = GenericModel(id)
 
-fun List<GenericEntity>.mapGenericEntity() = mapTo(
-    mutableListOf(), {
+fun List<GenericEntity>.mapGenericEntity() = mapTo(mutableListOf(), {
         it.map()
     }
 )
@@ -26,20 +25,47 @@ fun List<GenericModel>.mapToGenericEntity() = mapTo(mutableListOf(), {
 
 fun GenericModel.map() = GenericEntity(id)
 
+
+
+
+
+
+
 fun DataNet.map() = DataModel(
     type,status,data.mapNet(),message
+)
+
+fun DataModel.map() = DataNet(
+    type!!,status!!,data!!.mapModel(),message!!
 )
 
 fun AllDataNet.map() = AllDataModel(
     id, title, date, categories.mapListNet()
 )
 
+fun AllDataModel.map() = AllDataNet(
+    id, title, date, categories.mapListModel()
+)
+
+fun List<AllDataModel>.mapModel() = mapTo(mutableListOf(), {
+    it.map()
+})
+
+fun List<AllDataNet>.mapNet() = mapTo(mutableListOf(), {
+    it.map()
+})
+
+
+
+
+
+
 fun CategoriesNet.map() =  CategoriesModel(
     id, title, date, subCategories?.mapListModelCat()
 )
 
-fun SubCategoriesNet.map() = SubCategoriesModel(
-    id, title, date
+fun CategoriesModel.map() =  CategoriesNet(
+    id, title, date, subCategories?.mapListNetCat()
 )
 
 fun List<CategoriesNet>.mapListNet() = mapTo(mutableListOf(), {
@@ -51,6 +77,11 @@ fun List<CategoriesModel>.mapListModel() = mapTo(mutableListOf(), {
 })
 
 
+
+
+
+
+
 fun List<SubCategoriesModel>.mapListNetCat() = mapTo(mutableListOf(), {
     it.map()
 })
@@ -59,28 +90,14 @@ fun List<SubCategoriesNet>.mapListModelCat() = mapTo(mutableListOf(), {
     it.map()
 })
 
-fun DataModel.map() = DataNet(
-    type!!,status!!,data!!.mapModel(),message!!
-)
-
-fun List<AllDataModel>.mapModel() = mapTo(mutableListOf(), {
-    it.map()
-})
-
-fun List<AllDataNet>.mapNet() = mapTo(mutableListOf(), {
-    it.map()
-})
-
-fun AllDataModel.map() = AllDataNet(
-    id, title, date, categories.mapListModel()
-)
-
-fun CategoriesModel.map() =  CategoriesNet(
-    id, title, date, subCategories?.mapListNetCat()
+fun SubCategoriesNet.map() = SubCategoriesModel(
+    id, title, date
 )
 
 fun SubCategoriesModel.map() = SubCategoriesNet(
     id, title, date
 )
+
+
 
 
