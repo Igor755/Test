@@ -1,7 +1,7 @@
 package com.devcraft.domain.model
 
 
-data class AllDataModel(
+data class DetailDataModel(
     val id : Long,
     val title : String,
     val date : Long,

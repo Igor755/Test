@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main){
 
         navigateTo(
             R.id.fragment_container,
-            DataFragment(), backStackTag = MainActivity::class.java.name
+            DataFragment(), byFade = true
         )
     }
 }

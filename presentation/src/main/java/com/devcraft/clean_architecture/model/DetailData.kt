@@ -6,7 +6,7 @@ import kotlinx.android.parcel.RawValue
 
 
 @Parcelize
-data class AllData(
+data class DetailData(
     val id : Long,
     val title : String,
     val date : Long,

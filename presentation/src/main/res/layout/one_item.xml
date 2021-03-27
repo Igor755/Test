@@ -29,7 +29,7 @@
                     android:id="@+id/nameData"
                     android:textSize="16sp"
                     android:layout_centerInParent="true"
-                    android:text="NameBait"
+                    android:text="Name"
                     android:textAppearance="?android:textAppearanceLarge"/>
                <ImageView
                     android:layout_alignParentEnd="true"

@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devcraft.clean_architecture.R
-import com.devcraft.clean_architecture.ui.fragment.adapter.DataAdapterOld
 import com.devcraft.clean_architecture.extension.navigateTo
-import com.devcraft.clean_architecture.ui.fragment.adapter.DataAdapterNew
+import com.devcraft.clean_architecture.ui.fragment.adapter.DataAdapter
 import com.devcraft.clean_architecture.ui.main.MainActivity
 import com.devcraft.clean_architecture.ui.vm.MainViewModel
 import com.devcraft.domain.model.Result
@@ -19,8 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DataFragment : Fragment(R.layout.fragment_data) {
 
-   // private val dataAdapter: DataAdapterOld by inject()
-    private val dataAdapter1: DataAdapterNew by inject()
+    private val dataAdapter: DataAdapter by inject()
     private val mainViewModel: MainViewModel by viewModel()
 
 
@@ -36,13 +34,12 @@ class DataFragment : Fragment(R.layout.fragment_data) {
         activity.ivToolbarBack.visibility = View.GONE
         activity.tvToolbarName.text = resources.getString(R.string.app_name)
         rvProducts.layoutManager = LinearLayoutManager(activity)
-        rvProducts.adapter = dataAdapter1
+        rvProducts.adapter = dataAdapter
     }
 
     fun initListeners() {
-        dataAdapter1.onItemClickListener = { position->
-            val detailData = dataAdapter1.getDetailData(position)
-            println(detailData)
+        dataAdapter.onItemClickListener = { position->
+            val detailData = dataAdapter.getDetailData(position)
             navigateTo(
                 R.id.fragment_container,
                 CategoriesFragment(),args = Bundle().apply {
@@ -58,10 +55,8 @@ class DataFragment : Fragment(R.layout.fragment_data) {
         mainViewModel.setLiveData.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Result.Success -> {
-                    it.data?.let { tastingResponse ->
-                        //println(tastingResponse)
-                        //dataAdapter1.items = tastingResponse.data
-                        dataAdapter1.setNewData(tastingResponse.data)
+                    it.data?.let { responce ->
+                        dataAdapter.setNewData(responce.data)
                     }
                 }
                 is Result.Error ->

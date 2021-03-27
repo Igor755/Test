@@ -2,7 +2,7 @@ package com.devcraft.data.entity.network
 
 import com.google.gson.annotations.SerializedName
 
-data class AllDataNet(
+data class DetailDataNet(
     @SerializedName("id")
     val id : Long,
     @SerializedName("title")

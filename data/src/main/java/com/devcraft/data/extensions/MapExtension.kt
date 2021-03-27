@@ -39,19 +39,19 @@ fun DataModel.map() = DataNet(
     type!!,status!!,data!!.mapModel(),message!!
 )
 
-fun AllDataNet.map() = AllDataModel(
+fun DetailDataNet.map() = DetailDataModel(
     id, title, date, categories.mapListNet()
 )
 
-fun AllDataModel.map() = AllDataNet(
+fun DetailDataModel.map() = DetailDataNet(
     id, title, date, categories.mapListModel()
 )
 
-fun List<AllDataModel>.mapModel() = mapTo(mutableListOf(), {
+fun List<DetailDataModel>.mapModel() = mapTo(mutableListOf(), {
     it.map()
 })
 
-fun List<AllDataNet>.mapNet() = mapTo(mutableListOf(), {
+fun List<DetailDataNet>.mapNet() = mapTo(mutableListOf(), {
     it.map()
 })
 

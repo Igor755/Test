@@ -8,7 +8,7 @@ data class DataNet(
     @SerializedName("status")
     val status : Int,
     @SerializedName("data")
-    val data :  List<AllDataNet>,
+    val data :  List<DetailDataNet>,
     @SerializedName("message")
     val message : String
 )
