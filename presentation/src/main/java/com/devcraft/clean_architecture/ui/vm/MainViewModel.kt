@@ -13,19 +13,19 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val dataInteractor: DataInteractor) : ViewModel() {
 
-    var setLiveData: LiveData<Result<Data>>
-    private var _setLiveData = MutableLiveData<Result<Data>>()
+    var dataLiveData: LiveData<Result<Data>>
+    private var _dataLiveData = MutableLiveData<Result<Data>>()
 
     init {
-        setLiveData = _setLiveData
+        dataLiveData = _dataLiveData
     }
 
     fun getTastingsFromServer() {
         viewModelScope.launch(Dispatchers.IO) {
             dataInteractor.getData({
-                _setLiveData.postValue(Result.Success(it.map()))
+                _dataLiveData.postValue(Result.Success(it.map()))
             }, {
-                _setLiveData.postValue(Result.Error(it))
+                _dataLiveData.postValue(Result.Error(it))
             })
         }
     }
